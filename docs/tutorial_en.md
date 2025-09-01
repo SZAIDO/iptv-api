@@ -138,6 +138,18 @@ Adjust the configuration as needed, here is the default configuration descriptio
   ![Local sources](./images/local.png 'Local sources')
 
 
+- EPG Source (`config/epg.txt`)
+
+  The source of program guide information. The program will sequentially fetch the program guide data from the
+  subscription addresses in the file and aggregate the output.
+
+
+- Channel Aliases (`config/alias.txt`)
+
+  A list of aliases for channel names, used to map multiple names to a single name when fetching from the interface,
+  improving the fetch volume and accuracy. Format: TemplateChannelName,Alias1,Alias2,Alias3
+
+
 - Blacklist (`config/blacklist.txt`)
 
   Interfaces that match the blacklist keywords will be filtered and not collected, such as low-quality interfaces with
@@ -293,8 +305,8 @@ pipenv run service
 
 ## GUI Software
 
-1. Download the [IPTV-API update software](https://github.com/Guovin/iptv-api/releases), open the software, and click
-   update to complete the update.
+1. Download the [IPTV-API Update Software](https://github.com/Guovin/iptv-api/releases), open the software, and click
+   Start to perform the update.
 
 2. Or run the following command in the project directory to open the GUI software:
 
@@ -346,27 +358,27 @@ Taking the host path /etc/docker as an example:
 
 #### Environment Variables:
 
-| Variable    | Description          | Default Value      |
-|:------------|:---------------------|:-------------------|
-| APP_HOST    | Service host address | "http://localhost" |
-| APP_PORT    | Service port         | 8000               |
-| UPDATE_CRON | Scheduled task time  | "0 22,10 * * *"    |
+| Variable | Description          | Default Value      |
+|:---------|:---------------------|:-------------------|
+| APP_HOST | Service host address | "http://localhost" |
+| APP_PORT | Service port         | 8000               |
 
 ### 3. Update Results
 
-| Endpoint  | Description           |
-|:----------|:----------------------|
-| /         | Default endpoint      |
-| /m3u      | m3u format endpoint   |
-| /txt      | txt format endpoint   |
-| /ipv4     | ipv4 default endpoint |
-| /ipv6     | ipv6 default endpoint |
-| /ipv4/txt | ipv4 txt endpoint     |
-| /ipv6/txt | ipv6 txt endpoint     |
-| /ipv4/m3u | ipv4 m3u endpoint     |
-| /ipv6/m3u | ipv6 m3u endpoint     |
-| /content  | Endpoint content      |
-| /log      | Speed test log        |
+| Endpoint        | Description                                     |
+|:----------------|:------------------------------------------------|
+| /               | Default endpoint                                |
+| /m3u            | m3u format endpoint                             |
+| /txt            | txt format endpoint                             |
+| /ipv4           | ipv4 default endpoint                           |
+| /ipv6           | ipv6 default endpoint                           |
+| /ipv4/txt       | ipv4 txt endpoint                               |
+| /ipv6/txt       | ipv6 txt endpoint                               |
+| /ipv4/m3u       | ipv4 m3u endpoint                               |
+| /ipv6/m3u       | ipv6 m3u endpoint                               |
+| /content        | Endpoint content                                |
+| /log/result     | Log of valid results                            |
+| /log/speed-test | Log of all interfaces involved in speed testing |
 
 - RTMP Streaming:
 
